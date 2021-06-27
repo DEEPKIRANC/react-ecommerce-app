@@ -9,14 +9,22 @@ export const ACTIONS = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      return state;
-      break;
+      return [...state, action.payload];
+
     case "UPDATE_CART":
-      return state;
-      break;
+      const updatedList = state.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        } else {
+          return item;
+        }
+      });
+      return updatedList;
+
     case "REMOVE_FROM_CART":
-      return state;
-      break;
+      const filteredList = state.filter((item) => item !== action.payload.id);
+      return filteredList;
+
     default:
       return state;
   }
