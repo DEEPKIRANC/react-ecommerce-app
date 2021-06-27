@@ -1,0 +1,12 @@
+.productList-container {
+  background: #fff;
+  padding: 0.25rem;
+}
+
+.products-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  row-gap: 1rem;
+  column-gap: 0.5rem;
+}

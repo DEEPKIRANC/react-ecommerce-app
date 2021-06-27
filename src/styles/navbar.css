@@ -1,0 +1,32 @@
+.navbar {
+  padding: 0.25rem;
+  background: #047bd5;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.navbar > h2 {
+  font-family: "Nunito", sans-serif;
+}
+.navbar > input {
+  min-width: 300px;
+
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  box-shadow: 2px 2px 5px #333;
+}
+@media screen and (max-width: 700px) {
+  .navbar > input {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar > input {
+    width: 100px;
+  }
+}
