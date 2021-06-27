@@ -23,8 +23,7 @@ const reducer = (state, action) => {
       return updatedList;
 
     case "remove-from-cart":
-      const filteredList = state.filter((item) => item !== action.payload.id);
-      return filteredList;
+      return state.filter((item) => item.id !== action.payload.id);
 
     default:
       return state;
