@@ -10,8 +10,31 @@ export const Cart = () => {
   useEffect(() => {
     console.log("Items:", cartList);
   }, []);
-  const increment = (item) => {};
-  const decrement = (item) => {};
+  const increment = (item) => {
+    dispatch({
+      type: ACTIONS.UPDATE_CART,
+      payload: { id: item.id, quantity: item.quantity + 1 }
+    });
+  };
+  const decrement = (item) => {
+    if (item.quantity === 1) {
+      dispatch({ type: ACTIONS.REMOVE_FROM_CART, payload: { id: item.id } });
+      setProductList(
+        productList.map((product) => {
+          if (product.id === item.id) {
+            return { ...product, inCart: !product.inCart };
+          } else {
+            return product;
+          }
+        })
+      );
+    } else {
+      dispatch({
+        type: ACTIONS.UPDATE_CART,
+        payload: { id: item.id, quantity: item.quantity - 1 }
+      });
+    }
+  };
   const goToHome = () => {
     history.push("/");
   };
@@ -59,7 +82,7 @@ export const Cart = () => {
               </div>
               <div className="right-section">
                 <h4>{item.title}</h4>
-                <span>&#8377;{item.price}</span>
+                <span>&#8377;{item.price * item.quantity}</span>
                 <div
                   style={{
                     display: "flex",

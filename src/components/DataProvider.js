@@ -15,7 +15,7 @@ const reducer = (state, action) => {
     case "update-cart":
       const updatedList = state.map((item) => {
         if (item.id === action.payload.id) {
-          return { ...item, quantity: item.quantity + 1 };
+          return { ...item, quantity: action.payload.quantity };
         } else {
           return item;
         }
