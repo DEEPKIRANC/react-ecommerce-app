@@ -50,6 +50,13 @@ export const Cart = () => {
       })
     );
   };
+  const totalPrice = () => {
+    const totalPrice = cartList.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    return totalPrice;
+  };
   return (
     <div className="parent_div">
       <div className="cart_items">
@@ -111,7 +118,31 @@ export const Cart = () => {
         </div>
       </div>
       <div className="order_bill">
-        <p>Price Details</p>
+        <h5>PRICE DETAILS</h5>
+        <hr />
+        <section>
+          <span>Price({`${cartList.length} items`})</span>
+          <span className="price-details">&#8377;{totalPrice()}</span>
+        </section>
+        <section>
+          <span>Discount</span>
+          <span style={{ color: "green" }} className="price-details">
+            -&#8377;{0.3 * totalPrice()}
+          </span>
+        </section>
+        <section>
+          <span>Delivery Charges</span>
+          <span style={{ color: "green" }} className="price-details">
+            Free
+          </span>
+        </section>
+        <hr />
+        <section>
+          <span>Total Amount</span>
+          <span className="price-details">
+            &#8377;{totalPrice() - 0.3 * totalPrice()}
+          </span>
+        </section>
       </div>
     </div>
   );
