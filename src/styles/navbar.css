@@ -21,7 +21,7 @@
 }
 @media screen and (max-width: 700px) {
   .navbar > input {
-    width: 150px;
+    display: none;
   }
 }
 
