@@ -55,7 +55,7 @@ export const Cart = () => {
       (total, item) => total + item.price * item.quantity,
       0
     );
-    return totalPrice;
+    return Math.round(totalPrice);
   };
   return (
     <div className="parent_div">
@@ -133,7 +133,7 @@ export const Cart = () => {
         <section>
           <span>Discount</span>
           <span style={{ color: "green" }} className="price-details">
-            -&#8377;{0.3 * totalPrice()}
+            -&#8377;{Math.round(0.3 * totalPrice())}
           </span>
         </section>
         <section>
@@ -146,7 +146,7 @@ export const Cart = () => {
         <section>
           <span>Total Amount</span>
           <span className="price-details">
-            &#8377;{totalPrice() - 0.3 * totalPrice()}
+            &#8377;{Math.round(totalPrice() - 0.3 * totalPrice())}
           </span>
         </section>
       </div>
