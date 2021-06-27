@@ -97,8 +97,11 @@ export const Cart = () => {
                     columnGap: "0.5rem"
                   }}
                 >
-                  <button>Save For Later</button>
-                  <button onClick={() => removeItem(item)}>
+                  <button className="styled-button">Save For Later</button>
+                  <button
+                    className="styled-button"
+                    onClick={() => removeItem(item)}
+                  >
                     Remove From Cart
                   </button>
                 </div>
@@ -108,10 +111,13 @@ export const Cart = () => {
         </div>
         <hr />
         <div className="bottom-section">
-          <button onClick={goToHome}>Back To Home</button>
+          <button className="styled-button" onClick={goToHome}>
+            Back To Home
+          </button>
           <button
             disabled={cartList.length === 0}
             style={{ marginRight: "20px" }}
+            className="styled-button"
           >
             Place Order
           </button>

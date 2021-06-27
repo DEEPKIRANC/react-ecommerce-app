@@ -96,6 +96,16 @@ hr {
   height: 0.5px;
   width: 100%;
 }
+.styled-button {
+  padding: 0.25rem 2rem;
+  margin-top: 20px;
+  background: #ff9f00;
+  border: none;
+  color: white;
+  font-weight: bolder;
+  box-shadow: 1px 2px 2px #000;
+  cursor: pointer;
+}
 @media screen and (max-width: 768px) {
   .parent_div {
     flex-direction: column;
