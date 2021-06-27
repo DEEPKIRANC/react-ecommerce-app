@@ -5,6 +5,7 @@ import { DataContext } from "./DataProvider";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const [, , cartList, dispatch] = useContext(DataContext);
   return (
     <div className="navbar">
       <h2>Flipkart</h2>
@@ -12,7 +13,7 @@ export const Navbar = () => {
       <Link style={{ color: "white" }} to="/cart">
         <ShoppingCartIcon style={{ marginLeft: "50px" }} />
       </Link>
-      <strong>0</strong>
+      <strong>{cartList.length}</strong>
     </div>
   );
 };

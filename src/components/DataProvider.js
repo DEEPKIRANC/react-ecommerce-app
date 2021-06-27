@@ -7,11 +7,12 @@ export const ACTIONS = {
   REMOVE_FROM_CART: "remove-from-cart"
 };
 const reducer = (state, action) => {
+  console.log(state, action);
   switch (action.type) {
-    case "ADD_TO_CART":
+    case "add-to-cart":
       return [...state, action.payload];
 
-    case "UPDATE_CART":
+    case "update-cart":
       const updatedList = state.map((item) => {
         if (item.id === action.payload.id) {
           return { ...item, quantity: item.quantity + 1 };
@@ -21,7 +22,7 @@ const reducer = (state, action) => {
       });
       return updatedList;
 
-    case "REMOVE_FROM_CART":
+    case "remove-from-cart":
       const filteredList = state.filter((item) => item !== action.payload.id);
       return filteredList;
 
@@ -41,7 +42,9 @@ export const DataProvider = (props) => {
     setProductList(datalist);
   }, []);
   return (
-    <DataContext.Provider value={[productList, setProductList]}>
+    <DataContext.Provider
+      value={[productList, setProductList, cartList, dispatch]}
+    >
       {props.children}
     </DataContext.Provider>
   );
